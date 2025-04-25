@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}All Recipes{% endblock %}
+{% block heading %}All Recipes{% endblock %}
+
+{% block content %}
+{% if recipes %}
+    <div class="recipes-list">
+        {% for recipe in recipes %}
+        <div class="recipe">
+            <h3>{{ recipe.name }}</h3>
+            <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+            <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+        </div>
+        
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No recipes found.</p>
+{% endif %}
+    <div class="menu">
+        <a href="{{ url_for('index') }}">Home</a>
+    </div>
+{% endblock %}

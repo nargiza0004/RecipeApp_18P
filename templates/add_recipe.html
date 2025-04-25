@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Add Recipe{% endblock %}
+{% block heading %}Add Recipe{% endblock %}
+
+{% block content %}
+<div class="add-form">
+    <form method="POST">
+        <input type="text" name="name" placeholder="Recipe name" required>
+        <textarea name="ingredients" placeholder="Ingredients (comma separated)" required></textarea>
+        <textarea name="instructions" placeholder="Cooking instructions" required></textarea>
+        <button type="submit">Add Recipe</button>
+    </form>
+</div>
+<div class="menu">
+    <a href="{{ url_for('index') }}">Home</a>
+</div>
+{% endblock %}

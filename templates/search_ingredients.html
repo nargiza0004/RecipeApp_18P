@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Search by Ingredients{% endblock %}
+{% block heading %}Search by Ingredients{% endblock %}
+
+{% block content %}
+<div class="search-form">
+    <form method="POST">
+        <input type="text" name="ingredients" placeholder="Enter ingredients (comma separated)" required>
+        <button type="submit">Search</button>
+    </form>
+</div>
+<div class="menu">
+    <a href="{{ url_for('index') }}">Home</a>
+</div>
+{% endblock %}
