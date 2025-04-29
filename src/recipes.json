@@ -3,5 +3,15 @@
         "ingredients": "2 eggs, 2 tbsp sugar, 2 tbsp milk, 30g flour, \u00bc tsp baking powder, \u00bd tsp lemon juice",
         "instructions": "Whip egg whites with sugar + lemon. Mix yolks, milk, flour, baking powder. Fold whites into yolks. Cook on low heat with lid.",
         "name": "Japanese Pancakes"
+    },
+    {
+        "ingredients": "noodles, broth, soy sauce, miso, boiled egg, green onions, pork",
+        "instructions": "Boil noodles. Heat broth and mix with soy sauce or miso. Add cooked noodles, sliced pork, boiled egg, and chopped green onions.",
+        "name": "Ramen"
+    },
+    {
+        "ingredients": "rice, salt, nori, tuna, mayonnaise",
+        "instructions": "Mix tuna with mayonnaise. Wet your hands, add salt, shape warm rice into triangles with the filling inside. Wrap with nori.",
+        "name": "Onigiri"
     }
 ]
