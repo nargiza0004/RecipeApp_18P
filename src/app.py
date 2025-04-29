@@ -40,13 +40,26 @@ def search_name():
 @app.route('/search_ingredients', methods=['GET', 'POST'])
 def search_ingredients():
     if request.method == 'POST':
-        query = request.form.get('ingredients', '').lower()
-        recipes = []
-        for recipe in get_recipes():
-            ingredients = [i.strip().lower() for i in recipe['ingredients'].split(',')]
-            if all(q.strip().lower() in ingredients for q in query.split(',')):
-                recipes.append(recipe)
-        return render_template('all_recipes.html', recipes=recipes)
+        query = request.form.get('ingredients', '').lower().strip()
+        if not query:
+            return render_template('search_ingredients.html', error="Please enter ingredients")
+
+        recipes = get_recipes()
+        found_recipes = []
+                search_terms = []
+        for term in query.split(','):
+            search_terms.extend(term.strip().split())
+        
+        for recipe in recipes:
+            recipe_ingredients = []
+            for ing in recipe['ingredients'].split(','):
+                recipe_ingredients.extend(ing.strip().lower().split())
+            
+            if any(term in recipe_ingredients for term in search_terms):
+                found_recipes.append(recipe)
+        
+        return render_template('all_recipes.html', recipes=found_recipes)
+    
     return render_template('search_ingredients.html')
 
 @app.route('/add_recipe', methods=['GET', 'POST'])
