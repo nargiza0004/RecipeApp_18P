@@ -46,7 +46,8 @@ def search_ingredients():
 
         recipes = get_recipes()
         found_recipes = []
-                search_terms = []
+        
+        search_terms = []
         for term in query.split(','):
             search_terms.extend(term.strip().split())
         
@@ -61,6 +62,7 @@ def search_ingredients():
         return render_template('all_recipes.html', recipes=found_recipes)
     
     return render_template('search_ingredients.html')
+
 
 @app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
