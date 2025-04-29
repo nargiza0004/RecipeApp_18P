@@ -29,4 +29,4 @@ python src/app.py
 
 Team Members
 • Nargiza Mukhametrakhimova, 220103038, 18-P
-• Adina Boranbayeva, , 18-P
+• Adina Boranbayeva, 220103123, 18-P
