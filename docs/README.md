@@ -15,7 +15,17 @@ Technology Stack
 • Frontend: HTML5, CSS3, Jinja2  
 • Backend: Python, Flask  
 • Database: JSON file storage
+• Deployment: Local server
 
 Installation Instructions
 1. Clone the repository:
 git clone https://github.com/nargiza0004/RecipeApp_18P.git
+
+2. Navigate to project folder
+cd RecipeApp_18P
+
+3. Install dependencies
+pip install flask
+
+4. Run application
+python src/app.py
