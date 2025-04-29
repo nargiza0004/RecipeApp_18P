@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Recipe{% endblock %}
+{% block heading %}Edit Recipe{% endblock %}
+
+{% block content %}
+<div class="edit-form">
+    <form method="POST">
+        <input type="text" name="name" value="{{ recipe.name }}" placeholder="Recipe name" required>
+        <textarea name="ingredients" placeholder="Ingredients (comma separated)" required>{{ recipe.ingredients }}</textarea>
+        <textarea name="instructions" placeholder="Cooking instructions" required>{{ recipe.instructions }}</textarea>
+        <button type="submit">Update Recipe</button>
+    </form>
+</div>
+{% endblock %}
