@@ -3,10 +3,10 @@ import os
 
 app = Flask(__name__)
 
-# Database file
+
 DB_FILE = 'recipes.json'
 
-# Initialize database if it doesn't exist
+
 if not os.path.exists(DB_FILE):
     with open(DB_FILE, 'w') as f:
         json.dump([], f)
@@ -27,6 +27,7 @@ def index():
 def all_recipes():
     recipes = get_recipes()
     return render_template('all_recipes.html', recipes=recipes)
+
 
 @app.route('/search_name', methods=['GET', 'POST'])
 def search_name():
@@ -67,6 +68,27 @@ def add_recipe():
             return redirect(url_for('all_recipes'))
     
     return render_template('add_recipe.html')
+
+@app.route('/edit_recipe/<int:recipe_id>', methods=['GET', 'POST'])
+def edit_recipe(recipe_id):
+    recipes = get_recipes()
+    recipe = recipes[recipe_id]
+    
+    if request.method == 'POST':
+        recipe['name'] = request.form['name']
+        recipe['ingredients'] = request.form['ingredients']
+        recipe['instructions'] = request.form['instructions']
+        save_recipes(recipes)
+        return redirect(url_for('all_recipes'))
+    
+    return render_template('edit_recipe.html', recipe=recipe, recipe_id=recipe_id)
+
+@app.route('/delete_recipe/<int:recipe_id>')
+def delete_recipe(recipe_id):
+    recipes = get_recipes()
+    del recipes[recipe_id]
+    save_recipes(recipes)
+    return redirect(url_for('all_recipes'))
 
 @app.route('/about')
 def about():
