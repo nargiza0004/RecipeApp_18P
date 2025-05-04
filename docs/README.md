@@ -12,7 +12,7 @@ Objectives
 - Enable easy recipe sharing
 
 Technology Stack
-• Frontend: HTML5, CSS3, Jinja2  
+• Frontend: HTML, CSS
 • Backend: Python, Flask  
 • Database: JSON file storage
 • Deployment: Local server
